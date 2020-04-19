@@ -1,4 +1,6 @@
 - hosts: 6300-1
+  collections:
+      - arubanetworks.aoscx
   tasks:
     - name: Create VLAN 300
       arubaoss_vlan:
