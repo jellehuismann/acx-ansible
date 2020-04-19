@@ -2,9 +2,9 @@
   collections:
       - arubanetworks.aoscx
   tasks:
-    - name: Create VLAN 300
+    - name: Create VLAN 400
       arubaoss_vlan:
-        vlan_id: 300
-        name: "vlan300"
+        vlan_id: 400
+        name: "vlan400"
         config: "create"
         command: config_vlan
