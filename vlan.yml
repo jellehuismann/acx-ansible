@@ -1,0 +1,8 @@
+- hosts: 6300-1
+  tasks:
+    - name: Create VLAN 300
+      arubaoss_vlan:
+        vlan_id: 300
+        name: "vlan300"
+        config: "create"
+        command: config_vlan
