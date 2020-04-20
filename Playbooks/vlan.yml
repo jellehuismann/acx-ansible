@@ -1,5 +1,7 @@
 ---
 - hosts: 6300-1
+  roles:
+    - role: aoscx-ansible-role
   tasks:
     - name: Create VLAN 400
       arubaoss_vlan:
