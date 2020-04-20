@@ -6,5 +6,5 @@
       aoscx_vlan:
         vlan_id: 400
         name: "vlan400"
-        config: "create"
-        command: config_vlan
+        state: "create"
+        description: "Automated met Ansible"
