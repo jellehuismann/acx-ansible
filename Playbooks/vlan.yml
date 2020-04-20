@@ -1,6 +1,5 @@
 - hosts: 6300-1
-  roles:
-    - role: arubanetworks.aoscx_role
+  connection: httpapi
   tasks:
     - name: Create VLAN 400
       arubaoss_vlan:
