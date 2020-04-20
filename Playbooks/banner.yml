@@ -1,0 +1,8 @@
+- hosts: all
+  roles: 
+    - role: arubanetworks.aoscx_role
+  tasks:
+    - name: Adding or Updating Banner
+      aoscx_banner:
+        banner_type: banner
+        banner: "Hi!"
