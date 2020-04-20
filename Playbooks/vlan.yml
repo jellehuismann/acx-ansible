@@ -1,6 +1,5 @@
 ---
 - hosts: 6300-1
-  connection: httpapi
   roles:
     - role: aoscx-ansible-role
   tasks:
