@@ -1,4 +1,11 @@
 ---
+roles:
+  # Install a role from Ansible Galaxy.
+  - name: aoscx_role
+    version: 2.1.0
+
 collections:
-- arubanetworks.aoscx_role
-- arubanetworks.aoscx
+  # Install a collection from Ansible Galaxy.
+  - name: arubanetworks.aoscx
+    version: 1.0.1
+    source: https://galaxy.ansible.com
