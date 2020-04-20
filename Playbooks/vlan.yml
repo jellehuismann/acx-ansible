@@ -3,7 +3,7 @@
     - role: arubanetworks.aoscx_role
   tasks:
     - name: Create VLAN 400
-      arubaoss_vlan:
+      aoscx_vlan:
         vlan_id: 400
         name: "vlan400"
         config: "create"
