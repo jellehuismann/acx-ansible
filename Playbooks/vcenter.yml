@@ -17,7 +17,7 @@
         password: "{{ vcenter_pass }}"
       register: login
       
-    - name: Get all hosts from vCenter using cookies from last task
+    - name: Get all hosts from vCenter using cookies from previous task
       uri:
         url: https://{{ vcenter_server }}/rest/vcenter/host
         force_basic_auth: yes
