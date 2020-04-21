@@ -9,12 +9,12 @@
   tasks:
     - name: Login into vCenter and get cookies
       uri:
-        url: https://{{ vcenter_server }}/rest/com/vmware/cis/session
+        url: https://{{ servers.vcenter }}/rest/com/vmware/cis/session
         force_basic_auth: yes
         validate_certs: no
         method: POST
-        user: "{{ vcenter_user }}"
-        password: "{{ vcenter_pass }}"
+        user: "{{ username.vcenter }}"
+        password: "{{ password.vcenter }}"
       register: login
       
     - name: Get all hosts from vCenter using cookies from previous task
