@@ -1,6 +1,7 @@
 ---
 - name: Example showing VMware HTTP API utilization
-  hosts: localhost
+  hosts: local
+  connection: local
   gather_facts: no
   vars_files:
     - var.yml
