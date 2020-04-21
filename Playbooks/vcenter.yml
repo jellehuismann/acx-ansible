@@ -17,6 +17,7 @@
         user: "{{ username.vcenter }}"
         password: "{{ password.vcenter }}"
       register: login
+    - debug: msg="{{ login }}"
       
     - name: Get all hosts from vCenter using cookies from previous task
       uri:
