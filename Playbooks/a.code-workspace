@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Playbooks",
+			"path": "..\\..\\..\\Ansible CX\\acx-ansible\\Playbooks"
+		},
+		{
+			"name": "acx-ansible",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
