@@ -20,7 +20,7 @@
       
     - name: Get all hosts from vCenter using cookies from previous task
       uri:
-        url: https://{{ vcenter_server }}/rest/vcenter/host
+        url: https://{{ servers.vcenter }}/rest/vcenter/host
         force_basic_auth: yes
         validate_certs: no
         headers:
