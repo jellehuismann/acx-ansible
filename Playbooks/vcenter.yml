@@ -27,3 +27,12 @@
         headers:
           Cookie: "{{ login.set_cookie }}"
       register: vchosts
+
+    - name: Get all VLAN on vswitch
+      uri:
+        url: https://{{ servers.vcenter }}/rest/vcenter/host
+        force_basic_auth: yes
+        validate_certs: no
+        headers:
+          Cookie: "{{ login.set_cookie }}"
+      register: vchosts
