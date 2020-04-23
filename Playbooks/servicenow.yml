@@ -6,7 +6,7 @@
 
   tasks:
   - name: voeg vars bestand toe
-    include_vars: change_request_vars.yml
+    include_vars: var.yml
 
   - name: Maak een change ticket aan
     snow_record:
