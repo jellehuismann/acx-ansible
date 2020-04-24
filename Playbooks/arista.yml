@@ -1,0 +1,36 @@
+---
+- name: Verzamel status van arista switch
+  hosts: arista
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: verzamel informatie van de arista switch
+      eos_facts:
+
+    - name: Versie Switch
+      debug:
+        msg: "The EOS version is: {{ ansible_net_version }}"
+
+    - name: Hostname Switch
+      debug:
+        msg: "The hostname is: {{ ansible_net_hostname }}"
+
+    - name: Waardes van opgegeven show commando's
+      eos_command:
+        commands:
+          - show run | i hostname
+          - show ip interface brief
+          - show interfaces ethernet 2 trunk #laat de actieve trunks zien
+      tags: show
+      register: show_output
+
+    - name: Laat de show waardes in debugging zien
+      debug:
+        var: show_output
+      tags: show
+
+    - name: Laat de hostname van de switch in debugging zien
+      debug:
+        msg: "The hostname is {{ show_output.stdout[0] }}"
+      tags: show
