@@ -1,4 +1,10 @@
-connect-VIServer -Server vcenter.local -User {{ username.vcenter }} -Password {{ password.vcenter }} | Out-Null
+param 
+( 
+        $usernamevcenter,
+        $passwordvcenter
+)
+
+connect-VIServer -Server vcenter.local -User $usernamevcenter -Password $passwordvcenter | Out-Null
 $vlan=Get-VirtualSwitch -Name DSwitch | Get-VirtualPortGroup | `
 Select Name, @{N="VLANId";E={$_.Extensiondata.Config.DefaultPortCOnfig.Vlan.VlanId}}
-$vlan | Out-File -filePath vlanresult.json
+$vlan.VLANId | Out-File -filePath vlanresult.json
