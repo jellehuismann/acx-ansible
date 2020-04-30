@@ -29,11 +29,11 @@
       register: vchosts
 
     - name: Get all VLAN on vswitch
-      command: pwsh -File getvlanvswitch.ps1 -usernamevcenter "{{ username.vcenter }}" -passwordvcenter "{{ password.vcenter }}"
+      shell: pwsh -File getvlanvswitch.ps1 -usernamevcenter "{{ username.vcenter }}" -passwordvcenter "{{ password.vcenter }}"
       ignore_errors: yes
       changed_when: false
       register: powershell_output
-    #- name: Filter Powershell Output
-    #  set_fact:
-    #    vms: "{{ powershell_output.stdout | regex_findall('(?<=VLANId\: )(.*)') }}"
-    - debug: msg="{{ powershell_output.stdout }}"
+    - name: Filter Powershell Output
+      set_fact:
+        vms: "{{ powershell_output.stdout_lines | regex_findall('(?<=VLANId\: )(.*)') }}"
+    - debug: msg="{{ vms.stdout }}"
