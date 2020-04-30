@@ -47,5 +47,5 @@
     - name: filter voor vlans
       debug:
         var: vlan
-      loop: "{{ dvpg_info | json_query('DSwitch[*].vlan_info.vlan_id') }}"
+      loop: "{{ dvs_portgroup_info | json_query('DSwitch[*].vlan_info.vlan_id') }}"
       
