@@ -33,4 +33,4 @@
       ignore_errors: yes
       changed_when: false
       register: powershell_output
-    - debug: powershell_output.stdout
+    - debug: msg="{{ powershell_output }}"
