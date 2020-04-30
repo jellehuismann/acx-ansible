@@ -29,10 +29,7 @@
       register: vchosts
 
     - name: Get all VLAN on vswitch
-      uri:
-        url: https://{{ servers.vcenter }}/rest/vcenter/host
-        force_basic_auth: yes
-        validate_certs: no
-        headers:
-          Cookie: "{{ login.set_cookie }}"
-      register: vchosts
+      command: pwsh Playbooks/getvlanvswitch.ps1
+      ignore_errors: yes
+      changed_when: false
+      register: powershell_output
