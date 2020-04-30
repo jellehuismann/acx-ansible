@@ -50,6 +50,6 @@
         var: item
       loop: "{{ dvpg_info | json_query('dvs_portgroup_info.DSwitch[*].vlan_info.vlan_id') }}"
       vars:
-        vlan: "{{ dvpg_info | json_query('dvs_portgroup_info.DSwitch[*].vlan_info.vlan_id') }}"
-    - debug: msg="{{ vlan }}"
+        vlan: loop
+    - debug: msg="{{ dvpg_info }}"
       
