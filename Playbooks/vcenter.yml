@@ -29,7 +29,7 @@
       register: vchosts
 
     - name: Get all VLAN on vswitch
-      shell: pwsh -File getvlanvswitch.ps1 -usernamevcenter "{{ username.vcenter }}" -passwordvcenter "{{ password.vcenter }}"
+      command: pwsh -File getvlanvswitch.ps1 -usernamevcenter "{{ username.vcenter }}" -passwordvcenter "{{ password.vcenter }}"
       ignore_errors: yes
       changed_when: false
       register: powershell_output
