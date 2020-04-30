@@ -44,7 +44,7 @@
         validate_certs: no
         show_vlan_info: yes
       register: dvpg_info
-    - debug: msg="{{ dvpg_info.stdout }}"
+    - debug: msg="{{ dvpg_info }}"
     - name: filter voor vlans
       debug:
         var: vlan
