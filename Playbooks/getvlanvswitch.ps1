@@ -9,6 +9,6 @@ connect-VIServer -Server vcenter.local -User "$usernamevcenter" -Password "$pass
 $vlan=Get-VDSwitch -Name DSwitch | Get-VDPortgroup | `
 Select Name, @{N="VLANId";E={$_.Extensiondata.Config.DefaultPortCOnfig.Vlan.VlanId}}
 $vlan.VLANId | Out-File -filePath vlanresult.json
-$result=$vlan.VLANId
+$result=ConvertTo-Json -InputObject $vlan
 
 Write-Output $result
