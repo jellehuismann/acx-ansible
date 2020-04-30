@@ -43,13 +43,6 @@
         datacenter: "Campus"
         validate_certs: no
         show_vlan_info: yes
+        loop: "{{ dvpg_info | json_query('dvs_portgroup_info.DSwitch[*].vlan_info.vlan_id') }}"
       register: dvpg_info
     - debug: msg="{{ dvpg_info }}"
-    - name: filter voor vlans
-      debug:
-        var: item
-      loop: "{{ dvpg_info | json_query('dvs_portgroup_info.DSwitch[*].vlan_info.vlan_id') }}"
-      vars:
-        vlan: loop
-    - debug: msg="{{ dvpg_info }}"
-      
