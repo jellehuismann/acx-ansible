@@ -35,5 +35,5 @@
       register: powershell_output
     - name: Filter Powershell Output
       set_fact:
-        vms: "{{ powershell_output.stdout_lines | regex_findall('(?<=VLANId\: )(.*)') }}"
+        vms: "{{ powershell_output.stdout_lines | regex_findall('(?<=VLANId: )(.*)') }}"
     - debug: msg="{{ vms.stdout }}"
