@@ -19,7 +19,7 @@
       register: login
     - debug: msg="{{ login }}"
       
-    - name: Get ESXi hosts vanuit vCenter met behulp van cookies van de vorige task
+    - name: Haal ESXi hosts vanuit vCenter met behulp van cookies van de vorige task
       uri:
         url: https://{{ servers.vcenter }}/rest/vcenter/host
         force_basic_auth: yes
