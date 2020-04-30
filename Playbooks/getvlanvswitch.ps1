@@ -5,9 +5,10 @@ param
 )
 
 Install-Module vmware.powercli -Force
-Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
+Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $true
 connect-VIServer -Server vcenter.local -User "$usernamevcenter" -Password "$passwordvcenter" | Out-Null
 $vlan=Get-VirtualSwitch -Name DSwitch | Get-VirtualPortGroup | `
-Select Name, @{N="VLANId";E={$_.Extensiondata.Config.DefaultPortCOnfig.Vlan.VlanId}}
-$format=$vlan | Format-List VLANId
-ConvertTo-Json -InputObject $format
+Select @{N="VLANId";E={$_.Extensiondata.Config.DefaultPortCOnfig.Vlan.VlanId}}
+$result=ConvertTo-Json -InputObject $vlan
+
+return $result
