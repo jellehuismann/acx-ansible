@@ -40,6 +40,7 @@
         hostname: "{{ servers.vcenter }}"
         username: "{{ username.vcenter }}"
         password: "{{ password.vcenter }}"
+        datacenter: "Campus"
         validate_certs: no
         show_vlan_info: yes
       register: dvpg_info
