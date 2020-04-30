@@ -29,7 +29,7 @@
       register: vchosts
 
     - name: Get all VLAN on vswitch
-      command: pwsh Playbooks/getvlanvswitch.ps1
+      command: pwsh /root/pws/getvlanvswitch.ps1
       ignore_errors: yes
       changed_when: false
       register: powershell_output
