@@ -1,5 +1,5 @@
 ---
-- name: Example showing VMware HTTP API utilization
+- name: VMware HTTP REST-API Koppeling
   hosts: local
   connection: local
   gather_facts: no
@@ -8,7 +8,7 @@
   vars:
     ansible_python_interpreter: "/usr/bin/env python3"
   tasks:
-    - name: Login into vCenter and get cookies
+    - name: Login in vCenter en get cookies
       uri:
         url: https://{{ servers.vcenter }}/rest/com/vmware/cis/session
         force_basic_auth: yes
@@ -19,7 +19,7 @@
       register: login
     - debug: msg="{{ login }}"
       
-    - name: Get all hosts from vCenter using cookies from previous task
+    - name: Get ESXi hosts vanuit vCenter met behulp van cookies van de vorige task
       uri:
         url: https://{{ servers.vcenter }}/rest/vcenter/host
         force_basic_auth: yes

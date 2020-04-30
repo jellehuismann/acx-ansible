@@ -5,4 +5,4 @@
     - name: Adding or Updating Banner
       aoscx_banner:
         banner_type: banner
-        banner: "Hi!"
+        banner: "Hi! Geplaatst met Ansible Automation tool"
