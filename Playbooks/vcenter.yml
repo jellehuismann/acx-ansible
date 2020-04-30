@@ -8,25 +8,25 @@
   vars:
     ansible_python_interpreter: "/usr/bin/env python3"
   tasks:
-    - name: Login in vCenter en get cookies
-      uri:
-        url: https://{{ servers.vcenter }}/rest/com/vmware/cis/session
-        force_basic_auth: yes
-        validate_certs: no
-        method: POST
-        user: "{{ username.vcenter }}"
-        password: "{{ password.vcenter }}"
-      register: login
-    - debug: msg="{{ login }}"
+  #  - name: Login in vCenter en get cookies
+  #    uri:
+  #      url: https://{{ servers.vcenter }}/rest/com/vmware/cis/session
+  #      force_basic_auth: yes
+  #      validate_certs: no
+  #      method: POST
+  #      user: "{{ username.vcenter }}"
+  #      password: "{{ password.vcenter }}"
+  #    register: login
+  #  - debug: msg="{{ login }}"
       
-    - name: Haal ESXi hosts vanuit vCenter met behulp van cookies van de vorige task
-      uri:
-        url: https://{{ servers.vcenter }}/rest/vcenter/host
-        force_basic_auth: yes
-        validate_certs: no
-        headers:
-          Cookie: "{{ login.set_cookie }}"
-      register: vchosts
+    #- name: Haal ESXi hosts vanuit vCenter met behulp van cookies van de vorige task
+    #  uri:
+    #    url: https://{{ servers.vcenter }}/rest/vcenter/host
+    #    force_basic_auth: yes
+    #    validate_certs: no
+    #    headers:
+    #      Cookie: "{{ login.set_cookie }}"
+    #  register: vchosts
 
     - name: Get all VLAN on vswitch
       shell: pwsh -File getvlanvswitch.ps1 -usernamevcenter "{{ username.vcenter }}" -passwordvcenter "{{ password.vcenter }}"
