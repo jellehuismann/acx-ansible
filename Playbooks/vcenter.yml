@@ -44,8 +44,9 @@
         validate_certs: no
         show_vlan_info: yes
       register: dvpg_info
+    - debug: msg="{{ dvpg_info.stdout }}"
     - name: filter voor vlans
       debug:
         var: vlan
-      loop: "{{ dvs_portgroup_info | json_query('DSwitch[*].vlan_info.vlan_id') }}"
+      loop: "{{ dvpg_info | json_query('DSwitch[*].vlan_info.vlan_id') }}"
       
