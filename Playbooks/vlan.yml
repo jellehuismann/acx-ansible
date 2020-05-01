@@ -4,8 +4,7 @@
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
-    - debug: 
-      var: hostvars['local']['vlanlist']
+    - debug: var=hostvars['local']['vlanlist']
     - name: Create VLAN 400
       aoscx_vlan:
         vlan_id: 400
