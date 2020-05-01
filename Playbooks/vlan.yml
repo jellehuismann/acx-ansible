@@ -3,7 +3,7 @@
   gather_facts: yes
   vars:
     vlans: "{{ hostvars['local']['vlanlist'] }}"
-    vlansnozero: "{{ vlans | reject('search','0') | list }}""
+    vlansnozero: "{{ vlans | reject('search','0') | list }}"
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
