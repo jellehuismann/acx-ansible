@@ -20,7 +20,7 @@
       aoscx_l2_interface:
         interface: 1/1/13
         vlan_mode: trunk
-        vlan_trunks: "{{ vlansnozero | list}}""
+        vlan_trunks: "{{ vlansnozero | list}}"S
         description: "Interface trunk automated door Anisble"
     - debug: msg="{{ vlansnozero }}"
 
