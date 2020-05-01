@@ -17,11 +17,12 @@
         msg: "The hostname is: {{ ansible_net_hostname }}"
         
     - name: Toevoegen vlans allow aan ethernent 2 trunk
-      eos_l2_interface:
-        name: Ethernet2
-        mode: trunk
-        native_vlan: 2
-        trunk_allowed_vlans: ["10","20","30"]
+      eos_command:
+        commands:
+          - ena
+          - configure
+          - interface ethernet 2
+          - switchport trunk allowed vlan add "{{ item }}"
       loop: "{{ vlans }}"
       when: item != 0      
       tags: show
