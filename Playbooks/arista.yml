@@ -21,7 +21,7 @@
         name: Ethernet2
         mode: trunk
         native_vlan: 2
-        trunk_allowed_vlans: "{{ item }}"
+        trunk_allowed_vlans: ["10","20","30"]
       loop: "{{ vlans }}"
       when: item != 0      
       tags: show
