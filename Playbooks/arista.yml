@@ -19,7 +19,7 @@
     - name: Toevoegen vlans allow aan ethernent 2 trunk
       eos_config:
         lines:
-          - switchport trunk allowed vlan add "{{ item }}"
+          - switchport trunk allowed vlan add {{ item }}
         parents: interface ethernet 2
         before: no interface ethernet 2
       loop: "{{ vlans }}"
