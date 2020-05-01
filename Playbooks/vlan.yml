@@ -9,5 +9,4 @@
         name: "vlan400"
         state: "create"
         description: "Automated met Ansible"
-    - name: show variable
     - debug: msg="{{ vlanlist }}" 
