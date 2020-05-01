@@ -6,12 +6,22 @@
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
-    - name: Create VLAN 400
+    - name: Add VLAN "{{ item }}"
       aoscx_vlan:
         vlan_id: "{{ item }}"
-        name: "vlan400"
+        name: "vlan{{ item }}"
         state: "create"
-        description: "Automated met Ansible"
+        description: "Automated created vlan {{ item }} met Ansible"
       loop: "{{ vlans }}"
-    - debug: msg="{{ vlans }}"
+      when: item.vlans != 0
+    - name: Add VLAN trunk allowed vlan "{{ item }}"
+      aoscx_l2_interface:
+        interface: 1/1/13
+        vlan_mode: trunk
+        vlan_trunks: "{{ vlans }}"
+        description: "Interface trunk automated door Anisble"
+
+      loop: "{{ vlans }}"
+      when: item.vlans != 0
+
     
