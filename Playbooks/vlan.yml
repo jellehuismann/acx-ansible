@@ -10,4 +10,5 @@
         name: "vlan400"
         state: "create"
         description: "Automated met Ansible"
-    - debug: msg="{{ dvpg_info }}" 
+    - debug: 
+      var: hostvars['local']['vlanlist']
