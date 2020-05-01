@@ -16,6 +16,17 @@
         description: "Automated created vlan {{ item }} met Ansible"
       loop: "{{ vlans }}"
       when: item != 0
+
+- hosts: arubaswitches
+  gather_facts: yes
+  vars:
+    ansible_connection: network_cli
+    vlans: "{{ hostvars['local']['vlanlist'] }}"
+    vlanvar: "{{ hostvars['local']['vlanlistvar'] }}"
+    vlansnozero: "{{ vlanvar | reject('search','0') | list }}"
+  roles: 
+    - role: arubanetworks.aoscx_role 
+  tasks:         
     - name: Add VLAN trunk allowed vlan "{{ item }}"
       aoscx_command:
         commands: ['config',
