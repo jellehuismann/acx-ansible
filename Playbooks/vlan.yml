@@ -7,7 +7,7 @@
     - debug: var=hostvars['local']['vlanlist']    
     - name: Create VLAN 400
       aoscx_vlan:
-        vlan_id: "{{ var | int }}"
+        vlan_id: "{{ hostvars['local']['vlanlist'] | int }}"
         name: "vlan400"
         state: "create"
         description: "Automated met Ansible"
