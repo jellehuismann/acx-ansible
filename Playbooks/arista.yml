@@ -16,6 +16,16 @@
     - name: Hostname Switch
       debug:
         msg: "The hostname is: {{ ansible_net_hostname }}"
+        
+    - name: Toevoegen vlans allow aan ethernent 2 trunk
+      eos_l2_interface:
+        name: Ethernet2
+        mode: trunk
+        native_vlan: 2
+        trunk_allowed_vlans: "{{ item }}"
+      loop: "{{ vlans }}"
+      when: item != 0      
+      tags: show
 
     - name: Waardes van opgegeven show commando's
       eos_command:
@@ -23,9 +33,6 @@
           - show run | i hostname
           - show ip interface brief
           - show interfaces ethernet 2 trunk #laat de actieve trunks zien
-      loop: "{{ vlans }}"
-      when: item != 0      
-      tags: show
       register: show_output
 
     - name: Laat de show waardes in debugging zien
