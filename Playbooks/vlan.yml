@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: arubaswitches
   gather_facts: yes
   roles: 
     - role: arubanetworks.aoscx_role
