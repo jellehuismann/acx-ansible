@@ -3,7 +3,8 @@
   hosts: arista
   connection: network_cli
   gather_facts: no
-
+  vars:
+    vlans: "{{ hostvars['local']['vlanlist'] }}"
   tasks:
     - name: verzamel informatie van de arista switch
       eos_facts:
@@ -22,6 +23,8 @@
           - show run | i hostname
           - show ip interface brief
           - show interfaces ethernet 2 trunk #laat de actieve trunks zien
+      loop: "{{ vlans }}"
+      when: item != 0      
       tags: show
       register: show_output
 
