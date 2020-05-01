@@ -1,6 +1,5 @@
 ---
-- name: Verzamel status van arista switch
-  hosts: aristaswitches
+- hosts: aristaswitches
   connection: network_cli
   gather_facts: yes
   vars:
