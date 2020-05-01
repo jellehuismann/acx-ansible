@@ -4,14 +4,10 @@
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
-    - debug: var=hostvars['local']['vlanlist']
-    - name: parse vlan list
-      vlan: "{{ vlanlist | json_query('vlanlist[*].vlan')}}"
-    - debug: msg="{{ vlanlist }}"
-    
+    - debug: var=hostvars['local']['vlanlist']    
     - name: Create VLAN 400
       aoscx_vlan:
-        vlan_id: 400
+        vlan_id: "{{ vlanlist | int }}""
         name: "vlan400"
         state: "create"
         description: "Automated met Ansible"
