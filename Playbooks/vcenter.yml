@@ -48,7 +48,7 @@
     - debug: msg="{{ dvpg_info }}"
     - name: filter voor vlans
       set_fact:
-        vlanlist: "{{vlanlist|default([]) + [ {'vlan': item.vlan_info.vlan_id } ]  }}"
+        vlanlist: "{{vlanlist|default([]) + [ item.vlan_info.vlan_id, ]  }}"
         cacheable: yes
       with_items: "{{ dvpg_info | json_query('dvs_portgroup_info.DSwitch[*]') }}"
     - name: vlan list
