@@ -51,6 +51,7 @@
         vlanlist: "{{vlanlist|default([]) + [ item.vlan_info.vlan_id|int, ]  }}"
         cacheable: yes
       with_items: "{{ dvpg_info | json_query('dvs_portgroup_info.DSwitch[*]') }}"
+      when: item.vlan_info.vlan_id != 0
     - name: vlan list
       debug: var=vlanlist
       
