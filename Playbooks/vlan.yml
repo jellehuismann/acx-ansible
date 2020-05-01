@@ -9,4 +9,4 @@
         name: "vlan400"
         state: "create"
         description: "Automated met Ansible"
-    - debug: msg="{{ vlanlist }}" 
+    - debug: msg="{{ dvpg_info }}" 
