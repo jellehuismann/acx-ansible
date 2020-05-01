@@ -3,6 +3,7 @@
   gather_facts: yes
   vars:
     vlans: "{{ hostvars['local']['vlanlist'] }}"
+    vlansnozero: "{{ vlans | reject('search','0') | list }}""
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
@@ -18,10 +19,7 @@
       aoscx_l2_interface:
         interface: 1/1/13
         vlan_mode: trunk
-        vlan_trunks: "{{ item }}"
+        vlan_trunks: "{{ vlansnozero }}"
         description: "Interface trunk automated door Anisble"
-
-      loop: "{{ vlans }}"
-      when: item != 0
 
     
