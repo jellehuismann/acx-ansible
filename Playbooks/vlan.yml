@@ -1,14 +1,16 @@
 ---
 - hosts: arubaswitches
   gather_facts: yes
+  vars:
+    vlans: hostvars['local']['vlanlist']
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
-    - debug: var=hostvars['local']['vlanlist']    
     - name: Create VLAN 400
       aoscx_vlan:
-        vlan_id: "{{ hostvars['local']['vlanlist'] | int }}"
+        vlan_id: 400
         name: "vlan400"
         state: "create"
         description: "Automated met Ansible"
+    - debug: msg="{{ vlans }}"
     
