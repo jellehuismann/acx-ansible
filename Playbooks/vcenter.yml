@@ -2,7 +2,7 @@
 - name: VMware HTTP REST-API Koppeling
   hosts: local
   connection: local
-  gather_facts: no
+  gather_facts: yes
   vars_files:
     - var.yml
   vars:
