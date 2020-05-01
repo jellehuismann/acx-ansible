@@ -13,7 +13,7 @@
         state: "create"
         description: "Automated created vlan {{ item }} met Ansible"
       loop: "{{ vlans }}"
-      when: item.vlans != 0
+      when: item != 0
     - name: Add VLAN trunk allowed vlan "{{ item }}"
       aoscx_l2_interface:
         interface: 1/1/13
@@ -22,6 +22,6 @@
         description: "Interface trunk automated door Anisble"
 
       loop: "{{ vlans }}"
-      when: item.vlans != 0
+      when: item != 0
 
     
