@@ -1,0 +1,11 @@
+- name: Cleanup workflow
+  hosts: local
+  connection: local
+  gather_facts: yes
+  vars_files:
+    - var.yml
+  vars:
+    ansible_python_interpreter: "/usr/bin/env python3"
+  tasks:
+  - name: Clear gathered facts
+    meta: clear_facts
