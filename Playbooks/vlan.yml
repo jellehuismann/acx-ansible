@@ -17,32 +17,12 @@
       loop: "{{ vlans }}"
       when: item != 0
     - name: Add VLAN trunk allowed vlan "{{ item }}"
-      aoscx_l2_interface:
-        interface: 1/1/13
-        vlan_mode: trunk
-        vlan_trunks: [
-        "11",
-        "212",
-        "12",
-        "99",
-        "99",
-        "11",
-        "212",
-        "12",
-        "99",
-        "99",
-        "11",
-        "212",
-        "12",
-        "99",
-        "99",
-        "11",
-        "212",
-        "12",
-        "99",
-        "99"
-      ]
-        description: "Interface trunk automated door Anisble"
-    - debug: msg="{{ vlansnozero }}"
+      aoscx_command:
+        commands: ['config',
+          'interface 1/1/13',
+            'vlan trunk allowed {{ item }}',
+          'end']
+      loop: "{{ vlans }}"
+      when: item != 0
 
     
