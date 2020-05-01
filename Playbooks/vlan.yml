@@ -2,7 +2,7 @@
 - hosts: arubaswitches
   gather_facts: yes
   vars:
-    vlans: hostvars['local']['vlanlist']
+    vlans: "{{ hostvars['local']['vlanlist'] }}"
   roles: 
     - role: arubanetworks.aoscx_role
   tasks:
