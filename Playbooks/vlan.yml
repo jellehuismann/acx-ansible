@@ -5,6 +5,10 @@
     - role: arubanetworks.aoscx_role
   tasks:
     - debug: var=hostvars['local']['vlanlist']
+    - name: parse vlan list
+      vlan: "{{ vlanlist | json_query('vlanlist[*].vlan')}}"
+    - debug: msg="{{ vlanlist }}"
+    
     - name: Create VLAN 400
       aoscx_vlan:
         vlan_id: 400
