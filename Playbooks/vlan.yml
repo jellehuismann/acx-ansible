@@ -8,9 +8,10 @@
   tasks:
     - name: Create VLAN 400
       aoscx_vlan:
-        vlan_id: 400
+        vlan_id: "{{ item }}"
         name: "vlan400"
         state: "create"
         description: "Automated met Ansible"
+      loop: "{{ vlans }}"
     - debug: msg="{{ vlans }}"
     
