@@ -5,8 +5,8 @@
     - name: Adding or Updating Banner
       aoscx_banner:
         banner_type: banner
-        banner: 
-        "*************************************************************
+        banner: |
+        *************************************************************
         *     Deze Banner is geplaatst door Ansible                 *
         *                                                           *
         *     Access to this computer system is restricted to       *
@@ -23,4 +23,4 @@
         *     Your continued use of the system constitutes          *
         *     agreement to these terms. If you do not agree,        *
         *     please disconnect immediately.                        *
-        *************************************************************"
+        *************************************************************
