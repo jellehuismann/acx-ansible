@@ -6,8 +6,8 @@
       aoscx_banner:
         banner_type: banner
         banner: |
-            "    Deze Banner is geplaatst door Ansible/n                 
-            /n       
+            "    Deze Banner is geplaatst door Ansible
+                                    
              Access to this computer system is restricted to       
              official use by users authorized by Corp Inc.,        
              and must comply with the Information Security         
