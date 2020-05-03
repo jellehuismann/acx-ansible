@@ -5,4 +5,21 @@
     - name: Adding or Updating Banner
       aoscx_banner:
         banner_type: banner
-        banner: "--------------------------------------------------------------/n     Deze Banner is geplaatst door Ansible                 -"
+        banner: |
+            "    Deze Banner is geplaatst door Ansible/n                 
+            /n       
+             Access to this computer system is restricted to       
+             official use by users authorized by Corp Inc.,        
+             and must comply with the Information Security         
+             policies listed on the Corp Corporate Intranet at:    
+             http://iweb/informationsecurity/documents/            
+             policies/Policy.htm                                   
+                                                                 
+             Corp may monitor and disclose information on or       
+             about this system, and you should have no             
+             expectation of privacy in using it.                   
+                                                                   
+             Your continued use of the system constitutes          
+             agreement to these terms. If you do not agree,        
+             please disconnect immediately."                   
+        
