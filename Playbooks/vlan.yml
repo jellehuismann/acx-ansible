@@ -30,7 +30,7 @@
     - name: Add VLAN trunk allowed vlan "{{ item }}"
       aoscx_command:
         commands: ['config',
-          'interface 1/1/13',
+          'interface 1/1/1',
             'vlan trunk allowed {{ item }}',
           'end']
       loop: "{{ vlans }}"
